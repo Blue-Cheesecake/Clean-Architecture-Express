@@ -1,0 +1,31 @@
+{
+  "name": "clean_architecture_express",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "repository": "https://github.com/Blue-Cheesecake/Clean-Architecture-Express.git",
+  "author": "Sinut Wattanarporn <s_w.piepie@outlook.com.au>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "rimraf dist && npx tsc",
+    "prestart": "yarn run build",
+    "start": "node dist/index.js",
+    "predev": "yarn run build",
+    "dev": "concurrently \"npx tsc -w\"  \"nodemon dist/index.js\""
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.4.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^20.5.7",
+    "concurrently": "^8.2.1",
+    "nodemon": "^3.0.1",
+    "rimraf": "^5.0.1",
+    "typescript": "^5.2.2"
+  }
+}
