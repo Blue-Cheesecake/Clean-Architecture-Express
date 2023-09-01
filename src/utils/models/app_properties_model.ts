@@ -2,15 +2,15 @@ import { injectable } from "inversify";
 
 @injectable()
 export default class AppPropertiesModel {
-  constructor() {}
-
   public get port(): number {
-    return process.env.port == undefined
-      ? 8080
-      : Number.parseInt(process.env.port);
+    return Number.parseInt(process.env.port ?? "8080");
   }
 
   public get mongodbUrl(): string {
-    return process.env.mongoURL == undefined ? "" : process.env.mongoURL;
+    return process.env.mongodbURL ?? "";
+  }
+
+  public get mongodbDatabase(): string {
+    return process.env.mongodbUsedDatabase ?? "";
   }
 }
