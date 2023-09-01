@@ -7,18 +7,46 @@ import CACELogger from "../log/cace_logger.js";
 import IDataSource from "../datasources/idatasource.js";
 import MongooseDataSource from "../datasources/mongoose_datasource.js";
 
-const container = new Container();
+class DIContainer {
+  private _container: Container;
 
-container.bind<ILogger>(TYPES.ILogger).to(CACELogger).inSingletonScope();
+  public get container(): Container {
+    return this._container;
+  }
 
-container
-  .bind<IDataSource>(TYPES.IDataSource)
-  .to(MongooseDataSource)
-  .inSingletonScope();
+  constructor() {
+    this._container = new Container();
+    this.setUp();
+  }
 
-container
-  .bind<AppPropertiesModel>(TYPES.AppPropertiesModel)
-  .to(AppPropertiesModel)
-  .inSingletonScope();
+  private setUp() {
+    this.bindDataSource();
+    this.bindLogger();
+    this.bindAppProperties();
+  }
+
+  private bindLogger() {
+    this._container
+      .bind<ILogger>(TYPES.ILogger)
+      .to(CACELogger)
+      .inSingletonScope();
+  }
+
+  private bindDataSource() {
+    this._container
+      .bind<IDataSource>(TYPES.IDataSource)
+      .to(MongooseDataSource)
+      .inSingletonScope();
+  }
+
+  private bindAppProperties() {
+    this._container
+      .bind<AppPropertiesModel>(TYPES.AppPropertiesModel)
+      .to(AppPropertiesModel)
+      .inSingletonScope();
+  }
+}
+
+const container = new DIContainer().container;
 
 export { container };
