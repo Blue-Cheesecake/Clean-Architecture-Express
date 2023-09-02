@@ -2,7 +2,7 @@ import "reflect-metadata";
 import dotenv from "dotenv";
 import AppConfig from "./config/app_config.js";
 import { container } from "./utils/dependencies/inversify.config.js";
-import COMMON_DI_TYPES from "./utils/dependencies/types.js";
+import COMMON_DI_TYPES from "./utils/dependencies/common_di_types.js";
 
 // https://pvictorsys.medium.com/dependency-injection-in-typescript-with-inversify-e956fa28b668
 

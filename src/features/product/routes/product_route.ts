@@ -12,10 +12,11 @@ export default class ProductRoute {
     @inject(PRODUCT_DI_TYPES.ProductController)
     private readonly _productController: ProductController
   ) {
-    this.fetchAllProducts();
+    this.configureRoutes();
   }
 
-  private fetchAllProducts() {
+  private configureRoutes() {
     this.router.get(ProductRoute._prefix, this._productController.fetchAll);
+    this.router.post(ProductRoute._prefix, this._productController.addProduct);
   }
 }

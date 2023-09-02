@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { Container } from "inversify";
 import AppPropertiesModel from "../models/app_properties_model.js";
-import COMMON_DI_TYPES from "./types.js";
+import COMMON_DI_TYPES from "./common_di_types.js";
 import ILogger from "../log/ilogger.js";
 import CACELogger from "../log/cace_logger.js";
 import IDataSource from "../datasources/idatasource.js";

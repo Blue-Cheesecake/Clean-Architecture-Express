@@ -3,19 +3,21 @@ import IDataSource from "../utils/datasources/idatasource.js";
 import bodyParser from "body-parser";
 import ILogger from "../utils/log/ilogger.js";
 import { inject, injectable } from "inversify";
-import COMMON_DI_TYPES from "../utils/dependencies/types.js";
+import COMMON_DI_TYPES from "../utils/dependencies/common_di_types.js";
 import ProductRoute from "../features/product/routes/product_route.js";
 import PRODUCT_DI_TYPES from "../features/product/utils/dependencies/product_di_types.js";
 
 @injectable()
 export default class AppConfig {
-  private static _prefix = "/api/v1";
-  public express = express();
+  private static readonly _prefix = "/api/v1";
+  public readonly express = express();
 
   constructor(
-    @inject(COMMON_DI_TYPES.IDataSource) private _dataSource: IDataSource,
-    @inject(COMMON_DI_TYPES.ILogger) private _logger: ILogger,
-    @inject(PRODUCT_DI_TYPES.ProductRoute) private _productRoute: ProductRoute
+    @inject(COMMON_DI_TYPES.IDataSource)
+    private readonly _dataSource: IDataSource,
+    @inject(COMMON_DI_TYPES.ILogger) private readonly _logger: ILogger,
+    @inject(PRODUCT_DI_TYPES.ProductRoute)
+    private readonly _productRoute: ProductRoute
   ) {
     this.express = express();
     this.setUp();
