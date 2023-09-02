@@ -15,19 +15,13 @@ export default class ProductDIContainer implements IFeatureDIContainer {
       .to(ProductRepository)
       .inSingletonScope();
 
-    this._container
-      .bind<ProductService>(PRODUCT_DI_TYPES.ProductService)
-      .to(ProductService)
-      .inSingletonScope();
+    this._container.bind<ProductService>(PRODUCT_DI_TYPES.ProductService).to(ProductService).inSingletonScope();
 
     this._container
       .bind<ProductController>(PRODUCT_DI_TYPES.ProductController)
       .to(ProductController)
       .inSingletonScope();
 
-    this._container
-      .bind<ProductRoute>(PRODUCT_DI_TYPES.ProductRoute)
-      .to(ProductRoute)
-      .inSingletonScope();
+    this._container.bind<ProductRoute>(PRODUCT_DI_TYPES.ProductRoute).to(ProductRoute).inSingletonScope();
   }
 }

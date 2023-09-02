@@ -30,24 +30,15 @@ class DIContainer {
   }
 
   private bindAppConfig() {
-    this._container
-      .bind<AppConfig>(COMMON_DI_TYPES.AppConfig)
-      .to(AppConfig)
-      .inSingletonScope();
+    this._container.bind<AppConfig>(COMMON_DI_TYPES.AppConfig).to(AppConfig).inSingletonScope();
   }
 
   private bindLogger() {
-    this._container
-      .bind<ILogger>(COMMON_DI_TYPES.ILogger)
-      .to(CACELogger)
-      .inSingletonScope();
+    this._container.bind<ILogger>(COMMON_DI_TYPES.ILogger).to(CACELogger).inSingletonScope();
   }
 
   private bindDataSource() {
-    this._container
-      .bind<IDataSource>(COMMON_DI_TYPES.IDataSource)
-      .to(MongooseDataSource)
-      .inSingletonScope();
+    this._container.bind<IDataSource>(COMMON_DI_TYPES.IDataSource).to(MongooseDataSource).inSingletonScope();
   }
 
   private bindAppProperties() {

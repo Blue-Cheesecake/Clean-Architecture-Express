@@ -17,12 +17,9 @@ export default class ProductService {
   }
 
   public async getAllProducts(): Promise<Array<object>> {
-    const response: Array<IProductEntity> =
-      await this._productRepository.findAll();
+    const response: Array<IProductEntity> = await this._productRepository.findAll();
 
-    const objects = response.map((e) =>
-      Transformations.entityToObject(ProductModel, e)
-    );
+    const objects = response.map((e) => Transformations.entityToObject(ProductModel, e));
 
     return objects;
   }

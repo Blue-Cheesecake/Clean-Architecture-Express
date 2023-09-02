@@ -9,10 +9,6 @@ const schema = new Schema<IProductEntity>({
 
 const collectionName = "products";
 
-const ProductMongooseModel = model<IProductEntity>(
-  "Product",
-  schema,
-  collectionName
-);
+const ProductMongooseModel = model<IProductEntity>("Product", schema, collectionName);
 
 export default ProductMongooseModel;

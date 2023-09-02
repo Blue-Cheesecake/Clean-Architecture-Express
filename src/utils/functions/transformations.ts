@@ -22,13 +22,7 @@ export default class Transformations {
     plain: E,
     options?: ClassTransformOptions | undefined
   ): T {
-    return plainToInstance(
-      cls,
-      plain,
-      options ?? {
-        excludeExtraneousValues: true,
-      }
-    );
+    return plainToInstance(cls, plain, options ?? { excludeExtraneousValues: true });
   }
 
   public static entityToObject<T extends BaseModel, E>(

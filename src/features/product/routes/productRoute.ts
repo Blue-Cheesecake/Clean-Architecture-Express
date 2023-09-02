@@ -21,9 +21,7 @@ export default class ProductRoute {
     this.router.get(ProductRoute._prefix, this._productController.fetchAll);
     this.router.post(
       ProductRoute._prefix,
-      Transformations.convertRequestToDataClassMiddleware<ProductModel>(
-        ProductModel
-      ),
+      Transformations.convertRequestToDataClassMiddleware<ProductModel>(ProductModel),
       this._productController.addProduct
     );
   }
