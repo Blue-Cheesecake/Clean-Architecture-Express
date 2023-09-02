@@ -3,6 +3,8 @@ import { inject, injectable } from "inversify";
 import PRODUCT_DI_TYPES from "../utils/dependencies/productDITypes.js";
 import ProductService from "../services/productService.js";
 import SimpleMessageModel from "../../../utils/models/simpleMessageModel.js";
+import AddProductAPIRequest from "../models/addProductAPIRequest.js";
+import ProductMessages from "../utils/constants/productMessages.js";
 
 @injectable()
 export default class ProductController {
@@ -11,16 +13,21 @@ export default class ProductController {
     private readonly _productService: ProductService
   ) {}
 
-  public addProduct = async (req: Request, res: Response) => {
-    // res.send(<ISimpleMessageEntity>{
-    //   message: "JSON Message",
-    // });
+  public addProduct = async (
+    req: AddProductAPIRequest,
+    res: Response
+  ): Promise<void> => {
+    console.log(req.body);
 
-    res.send(new SimpleMessageModel("JSON MODEL"));
+    console.log(req.body.name);
+    console.log(req.body.version);
+    console.log(req.body.type);
+
+    res.send(new SimpleMessageModel(ProductMessages.success));
   };
 
-  public fetchAll = async (req: Request, res: Response) => {
+  public fetchAll = async (_: Request, res: Response): Promise<void> => {
     const response = await this._productService.getAllProducts();
-    res.send({ response });
+    res.send(response);
   };
 }
