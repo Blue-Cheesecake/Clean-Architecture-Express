@@ -15,7 +15,8 @@ export default class AppConfig {
   constructor(
     @inject(COMMON_DI_TYPES.IDataSource)
     private readonly _dataSource: IDataSource,
-    @inject(COMMON_DI_TYPES.ILogger) private readonly _logger: ILogger,
+    @inject(COMMON_DI_TYPES.ILogger)
+    private readonly _logger: ILogger,
     @inject(PRODUCT_DI_TYPES.ProductRoute)
     private readonly _productRoute: ProductRoute
   ) {

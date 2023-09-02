@@ -5,6 +5,8 @@ import ProductService from "../services/productService.js";
 import SimpleMessageModel from "../../../utils/models/simpleMessageModel.js";
 import AddProductAPIRequest from "../models/addProductAPIRequest.js";
 import ProductMessages from "../utils/constants/productMessages.js";
+import APIResponse from "../../../utils/functions/apiResponse.js";
+import IProductEntity from "../entities/iproductEntity.js";
 
 @injectable()
 export default class ProductController {
@@ -19,15 +21,17 @@ export default class ProductController {
   ): Promise<void> => {
     console.log(req.body);
 
-    console.log(req.body.name);
-    console.log(req.body.version);
-    console.log(req.body.type);
+    await this._productService.addProduct(req.body);
 
-    res.send(new SimpleMessageModel(ProductMessages.success));
+    APIResponse.ok<SimpleMessageModel>(
+      res,
+      new SimpleMessageModel(ProductMessages.success)
+    );
   };
 
   public fetchAll = async (_: Request, res: Response): Promise<void> => {
     const response = await this._productService.getAllProducts();
-    res.send(response);
+
+    APIResponse.ok<Array<IProductEntity>>(res, response);
   };
 }

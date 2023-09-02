@@ -1,4 +1,4 @@
-import { IsNumber, IsString } from "class-validator";
+import { IsDefined, IsEnum, IsNumber, IsString } from "class-validator";
 import IProductEntity from "../entities/iproductEntity.js";
 import ProductType from "../utils/constants/productType.js";
 
@@ -9,6 +9,7 @@ export default class ProductModel implements IProductEntity {
   }
 
   @IsString()
+  @IsDefined()
   public set name(value: string) {
     this._name = value;
   }
@@ -19,6 +20,7 @@ export default class ProductModel implements IProductEntity {
   }
 
   @IsNumber()
+  @IsDefined()
   public set version(value: number) {
     this._version = value;
   }
@@ -27,6 +29,9 @@ export default class ProductModel implements IProductEntity {
   public get type(): ProductType {
     return this._type;
   }
+
+  @IsDefined()
+  @IsEnum(ProductType)
   public set type(value: ProductType) {
     this._type = value;
   }
