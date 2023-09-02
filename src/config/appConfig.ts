@@ -6,6 +6,8 @@ import { inject, injectable } from "inversify";
 import COMMON_DI_TYPES from "../utils/dependencies/commonDITypes.js";
 import ProductRoute from "../features/product/routes/productRoute.js";
 import PRODUCT_DI_TYPES from "../features/product/utils/dependencies/productDITypes.js";
+import morgan from "morgan";
+import morganBody from "morgan-body";
 
 @injectable()
 export default class AppConfig {
@@ -42,6 +44,8 @@ export default class AppConfig {
 
   private configureMiddlewares(): void {
     this.express.use(bodyParser.json());
+    this.express.use(morgan(`combined`));
+    // morganBody(this.express);
   }
 
   private configureRoutes(): void {
