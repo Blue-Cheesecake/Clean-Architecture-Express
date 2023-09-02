@@ -7,6 +7,6 @@ const schema = new Schema<IProductEntity>({
   type: { type: Number, required: true },
 });
 
-const ProductModel = model<IProductEntity>("ProductModel", schema);
+const ProductModel = model<IProductEntity>("Product", schema);
 
 export default ProductModel;
