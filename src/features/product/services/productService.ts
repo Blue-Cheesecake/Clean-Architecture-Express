@@ -1,8 +1,9 @@
 import { inject, injectable } from "inversify";
 import PRODUCT_DI_TYPES from "../utils/dependencies/productDITypes.js";
 import ProductRepository from "../repositories/productRepository.js";
-import IProductEntity from "../entities/iproductEntity.js";
 import ProductModel from "../models/productModel.js";
+import Transformations from "../../../utils/functions/transformations.js";
+import IProductEntity from "../entities/iproductEntity.js";
 
 @injectable()
 export default class ProductService {
@@ -15,8 +16,14 @@ export default class ProductService {
     await this._productRepository.add(product);
   }
 
-  public async getAllProducts(): Promise<Array<IProductEntity>> {
-    const response = await this._productRepository.findAll();
-    return response;
+  public async getAllProducts(): Promise<Array<object>> {
+    const response: Array<IProductEntity> =
+      await this._productRepository.findAll();
+
+    const objects = response.map((e) =>
+      Transformations.entityToObject(ProductModel, e)
+    );
+
+    return objects;
   }
 }

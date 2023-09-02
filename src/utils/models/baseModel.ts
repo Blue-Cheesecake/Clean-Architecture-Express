@@ -1,7 +1,7 @@
-import { instanceToPlain } from "class-transformer";
+import Transformations from "../functions/transformations.js";
 
 export default class BaseModel {
-  toJSONObject() {
-    return instanceToPlain(this);
+  toObject() {
+    return Transformations.modelToObject(this);
   }
 }

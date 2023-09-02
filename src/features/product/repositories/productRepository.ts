@@ -7,7 +7,7 @@ import ProductModel from "../models/productModel.js";
 @injectable()
 export default class ProductRepository implements IProductRepository {
   async add(product: ProductModel): Promise<void> {
-    const productModel = new ProductMongooseModel(product.toJSONObject());
+    const productModel = new ProductMongooseModel(product.toObject());
     await productModel.save();
   }
 

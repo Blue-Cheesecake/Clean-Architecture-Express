@@ -1,6 +1,6 @@
 enum ProductType {
-  HARDWARE,
-  SOFTWARE,
+  Hardware = "Hardware",
+  Software = "Software",
 }
 
 export default ProductType;
