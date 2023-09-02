@@ -8,10 +8,18 @@
   "type": "module",
   "scripts": {
     "build": "rimraf dist && npx tsc",
-    "prestartdev": "yarn run build",
-    "startdev": "NODE_ENV=dev node dist/index.js",
-    "predev": "yarn run build",
-    "dev": "concurrently \"npx tsc -w\"  \"NODE_ENV=dev nodemon dist/index.js\""
+    "prerelease-dev": "yarn run build",
+    "release-dev": "NODE_ENV=dev node dist/index.js",
+    "predebug-dev": "yarn run build",
+    "debug-dev": "concurrently \"npx tsc -w\"  \"NODE_ENV=dev nodemon dist/index.js\"",
+    "prerelease-stg": "yarn run build",
+    "release-stg": "NODE_ENV=stg node dist/index.js",
+    "predebug-stg": "yarn run build",
+    "debug-stg": "concurrently \"npx tsc -w\"  \"NODE_ENV=stg nodemon dist/index.js\"",
+    "prerelease-prd": "yarn run build",
+    "release-prd": "NODE_ENV=prd node dist/index.js",
+    "prewarch-prd": "yarn run build",
+    "debug-prd": "concurrently \"npx tsc -w\"  \"NODE_ENV=prd nodemon dist/index.js\""
   },
   "dependencies": {
     "body-parser": "^1.20.2",
