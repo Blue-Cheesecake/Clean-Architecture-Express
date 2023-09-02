@@ -1,12 +1,13 @@
 import { inject, injectable } from "inversify";
 import IDataSource from "./idatasource.js";
 import AppPropertiesModel from "../models/app_properties_model.js";
-import TYPES from "../dependencies/types.js";
+import COMMON_DI_TYPES from "../dependencies/types.js";
 import mongoose from "mongoose";
 
 @injectable()
 export default class MongooseDataSource implements IDataSource {
-  @inject(TYPES.AppPropertiesModel) private _appProperties: AppPropertiesModel;
+  @inject(COMMON_DI_TYPES.AppPropertiesModel)
+  private _appProperties: AppPropertiesModel;
 
   async openConnection(): Promise<void> {
     await mongoose.connect(this._appProperties.mongodbUrl, {
