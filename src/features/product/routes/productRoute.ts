@@ -1,7 +1,7 @@
 import express, { Router } from "express";
 import { inject, injectable } from "inversify";
-import PRODUCT_DI_TYPES from "../utils/dependencies/product_di_types.js";
-import ProductController from "../controllers/product_controller.js";
+import PRODUCT_DI_TYPES from "../utils/dependencies/productDITypes.js";
+import ProductController from "../controllers/productController.js";
 
 @injectable()
 export default class ProductRoute {

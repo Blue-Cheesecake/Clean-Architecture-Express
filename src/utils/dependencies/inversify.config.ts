@@ -1,13 +1,13 @@
 import "reflect-metadata";
 import { Container } from "inversify";
-import AppPropertiesModel from "../models/app_properties_model.js";
-import COMMON_DI_TYPES from "./common_di_types.js";
+import AppPropertiesModel from "../models/appPropertiesModel.js";
+import COMMON_DI_TYPES from "./commonDITypes.js";
 import ILogger from "../log/ilogger.js";
-import CACELogger from "../log/cace_logger.js";
+import CACELogger from "../log/caceLogger.js";
 import IDataSource from "../datasources/idatasource.js";
-import MongooseDataSource from "../datasources/mongoose_datasource.js";
-import AppConfig from "../../config/app_config.js";
-import ProductDIContainer from "../../features/product/utils/dependencies/product_di_container.js";
+import MongooseDataSource from "../datasources/mongooseDatasource.js";
+import AppConfig from "../../config/appConfig.js";
+import ProductDIContainer from "../../features/product/utils/dependencies/productDIContainer.js";
 
 class DIContainer {
   private _container: Container;

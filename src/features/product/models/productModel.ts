@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import IProductEntity from "../entities/iproduct_entity.js";
+import IProductEntity from "../entities/iproductEntity.js";
 
 const schema = new Schema<IProductEntity>({
   name: { type: String, required: true },

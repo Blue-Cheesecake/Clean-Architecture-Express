@@ -3,9 +3,9 @@ import IDataSource from "../utils/datasources/idatasource.js";
 import bodyParser from "body-parser";
 import ILogger from "../utils/log/ilogger.js";
 import { inject, injectable } from "inversify";
-import COMMON_DI_TYPES from "../utils/dependencies/common_di_types.js";
-import ProductRoute from "../features/product/routes/product_route.js";
-import PRODUCT_DI_TYPES from "../features/product/utils/dependencies/product_di_types.js";
+import COMMON_DI_TYPES from "../utils/dependencies/commonDITypes.js";
+import ProductRoute from "../features/product/routes/productRoute.js";
+import PRODUCT_DI_TYPES from "../features/product/utils/dependencies/productDITypes.js";
 
 @injectable()
 export default class AppConfig {

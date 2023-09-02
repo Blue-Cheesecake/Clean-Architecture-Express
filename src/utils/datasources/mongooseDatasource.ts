@@ -1,7 +1,7 @@
 import { inject, injectable } from "inversify";
 import IDataSource from "./idatasource.js";
-import AppPropertiesModel from "../models/app_properties_model.js";
-import COMMON_DI_TYPES from "../dependencies/common_di_types.js";
+import AppPropertiesModel from "../models/appPropertiesModel.js";
+import COMMON_DI_TYPES from "../dependencies/commonDITypes.js";
 import mongoose from "mongoose";
 
 @injectable()

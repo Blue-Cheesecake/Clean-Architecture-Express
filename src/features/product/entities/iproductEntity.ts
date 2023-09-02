@@ -1,4 +1,4 @@
-import ProductType from "../utils/constants/product_type.js";
+import ProductType from "../utils/constants/productType.js";
 
 export default interface IProductEntity {
   name: string;

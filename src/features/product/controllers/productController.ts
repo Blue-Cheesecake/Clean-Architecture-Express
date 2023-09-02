@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { inject, injectable } from "inversify";
-import PRODUCT_DI_TYPES from "../utils/dependencies/product_di_types.js";
-import ProductService from "../services/product_service.js";
-import SimpleMessageModel from "../../../utils/models/simple_message_model.js";
+import PRODUCT_DI_TYPES from "../utils/dependencies/productDITypes.js";
+import ProductService from "../services/productService.js";
+import SimpleMessageModel from "../../../utils/models/simpleMessageModel.js";
 
 @injectable()
 export default class ProductController {

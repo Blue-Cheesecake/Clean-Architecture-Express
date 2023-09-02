@@ -1,7 +1,7 @@
 import { inject, injectable } from "inversify";
-import PRODUCT_DI_TYPES from "../utils/dependencies/product_di_types.js";
-import ProductRepository from "../repositories/product_repository.js";
-import IProductEntity from "../entities/iproduct_entity.js";
+import PRODUCT_DI_TYPES from "../utils/dependencies/productDITypes.js";
+import ProductRepository from "../repositories/productRepository.js";
+import IProductEntity from "../entities/iproductEntity.js";
 
 @injectable()
 export default class ProductService {
