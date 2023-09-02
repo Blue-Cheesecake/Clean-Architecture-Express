@@ -1,12 +1,17 @@
 import { Request, Response } from "express";
-import { injectable } from "inversify";
-import AppConfig from "../../../config/app_config";
+import { inject, injectable } from "inversify";
+import PRODUCT_DI_TYPES from "../utils/dependencies/product_di_types.js";
+import ProductService from "../services/product_service.js";
 
 @injectable()
 export default class ProductController {
-  constructor() {}
+  constructor(
+    @inject(PRODUCT_DI_TYPES.ProductService)
+    private readonly _productService: ProductService
+  ) {}
 
-  public fetchAll(req: Request, res: Response) {
-    res.send({ products: "product list" });
-  }
+  public fetchAll = async (req: Request, res: Response) => {
+    const response = await this._productService.getAllProducts();
+    res.send({ response });
+  };
 }

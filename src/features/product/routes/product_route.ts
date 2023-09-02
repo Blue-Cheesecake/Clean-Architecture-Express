@@ -6,21 +6,16 @@ import ProductController from "../controllers/product_controller.js";
 @injectable()
 export default class ProductRoute {
   private static readonly _prefix = "/product";
-  private readonly _router: Router;
-
-  public get router(): Router {
-    return this._router;
-  }
+  public readonly router: Router = express.Router();
 
   constructor(
     @inject(PRODUCT_DI_TYPES.ProductController)
-    private _controller: ProductController
+    private readonly _productController: ProductController
   ) {
-    this._router = express.Router();
     this.fetchAllProducts();
   }
 
   private fetchAllProducts() {
-    this._router.get(ProductRoute._prefix, this._controller.fetchAll);
+    this.router.get(ProductRoute._prefix, this._productController.fetchAll);
   }
 }
