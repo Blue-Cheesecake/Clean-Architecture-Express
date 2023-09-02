@@ -1,8 +1,11 @@
 import { IsDefined, IsEnum, IsNumber, IsString } from "class-validator";
 import IProductEntity from "../entities/iproductEntity.js";
 import ProductType from "../utils/constants/productType.js";
+import { Expose } from "class-transformer";
+import BaseModel from "../../../utils/models/baseModel.js";
 
-export default class ProductModel implements IProductEntity {
+export default class ProductModel extends BaseModel implements IProductEntity {
+  @Expose({ name: "name" })
   private _name: string;
   public get name(): string {
     return this._name;
@@ -14,6 +17,7 @@ export default class ProductModel implements IProductEntity {
     this._name = value;
   }
 
+  @Expose({ name: "version" })
   private _version: number;
   public get version(): number {
     return this._version;
@@ -25,6 +29,7 @@ export default class ProductModel implements IProductEntity {
     this._version = value;
   }
 
+  @Expose({ name: "type" })
   private _type: ProductType;
   public get type(): ProductType {
     return this._type;

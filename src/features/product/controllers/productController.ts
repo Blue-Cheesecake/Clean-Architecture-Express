@@ -19,8 +19,6 @@ export default class ProductController {
     req: AddProductAPIRequest,
     res: Response
   ): Promise<void> => {
-    console.log(req.body);
-
     await this._productService.addProduct(req.body);
 
     APIResponse.ok<SimpleMessageModel>(
