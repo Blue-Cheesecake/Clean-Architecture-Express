@@ -1,8 +1,8 @@
 import { IsDefined, IsEnum, IsNumber, IsString } from "class-validator";
-import IProductEntity from "../entities/IProductEntity.js";
-import ProductType from "../utils/constants/ProductType.js";
+import IProductEntity from "../entities/iproductEntity.js";
+import ProductType from "../utils/constants/productType.js";
 import { Exclude, Expose } from "class-transformer";
-import BaseModel from "../../../utils/models/BaseModel.js";
+import BaseModel from "../../../utils/models/baseModel.js";
 import { Schema } from "mongoose";
 
 export default class ProductModel extends BaseModel implements IProductEntity {

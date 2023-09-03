@@ -1,5 +1,5 @@
 import { injectable } from "inversify";
-import ILogger from "./ILogger.js";
+import ILogger from "./ilogger.js";
 
 @injectable()
 export default class CACELogger implements ILogger {

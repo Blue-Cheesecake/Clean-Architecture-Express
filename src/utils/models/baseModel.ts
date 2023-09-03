@@ -1,4 +1,4 @@
-import Transformations from "../functions/Transformations.js";
+import Transformations from "../functions/transformations.js";
 
 export default class BaseModel {
   toObject() {

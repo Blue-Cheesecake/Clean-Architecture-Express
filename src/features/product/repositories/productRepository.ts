@@ -1,8 +1,8 @@
 import { injectable } from "inversify";
-import ProductModel from "../models/ProductModel.js";
-import IProductRepository from "./IProductRepository.js";
-import IProductEntity from "../entities/IProductEntity.js";
-import ProductMongooseModel from "../models/ProductMongooseModel.js";
+import IProductEntity from "../entities/iproductEntity.js";
+import ProductMongooseModel from "../models/productMongooseModel.js";
+import IProductRepository from "./iproductRepository.js";
+import ProductModel from "../models/productModel.js";
 
 @injectable()
 export default class ProductRepository implements IProductRepository {
