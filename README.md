@@ -84,6 +84,8 @@ The properties of environment file includes
 port=8080
 mongodbURL="..."
 mongodbUsedDatabase="dev"
+# optional.
+mock=true
 ```
 
 3. **Install Dependencies**
