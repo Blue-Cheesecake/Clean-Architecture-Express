@@ -1,5 +1,5 @@
 import { Schema } from "mongoose";
-import ProductType from "../utils/constants/productType.js";
+import ProductType from "../utils/constants/ProductType.js";
 
 export default interface IProductEntity {
   id: Schema.Types.ObjectId;

@@ -1,10 +1,10 @@
 import { Container } from "inversify";
-import IFeatureDIContainer from "../../../../utils/dependencies/ifeatureDIContainer.js";
-import ProductController from "../../controllers/productController.js";
-import PRODUCT_DI_TYPES from "./productDITypes.js";
-import ProductRoute from "../../routes/productRoute.js";
-import ProductService from "../../services/productService.js";
-import ProductRepository from "../../repositories/productRepository.js";
+import IFeatureDIContainer from "../../../../utils/dependencies/IFeatureDIContainer.js";
+import ProductController from "../../controllers/ProductController.js";
+import PRODUCT_DI_TYPES from "./ProductDITypes.js";
+import ProductRoute from "../../routes/ProductRoute.js";
+import ProductService from "../../services/ProductService.js";
+import ProductRepository from "../../repositories/ProductRepository.js";
 
 export default class ProductDIContainer implements IFeatureDIContainer {
   constructor(private _container: Container) {}

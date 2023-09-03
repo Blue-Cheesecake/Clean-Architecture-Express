@@ -1,13 +1,12 @@
 import express from "express";
-import IDataSource from "../utils/datasources/idatasource.js";
+import IDataSource from "../utils/datasources/IDataSource.js";
 import bodyParser from "body-parser";
-import ILogger from "../utils/log/ilogger.js";
+import ILogger from "../utils/log/ILogger.js";
 import { inject, injectable } from "inversify";
-import COMMON_DI_TYPES from "../utils/dependencies/commonDITypes.js";
-import ProductRoute from "../features/product/routes/productRoute.js";
-import PRODUCT_DI_TYPES from "../features/product/utils/dependencies/productDITypes.js";
+import COMMON_DI_TYPES from "../utils/dependencies/CommonDITypes.js";
+import ProductRoute from "../features/product/routes/ProductRoute.js";
+import PRODUCT_DI_TYPES from "../features/product/utils/dependencies/ProductDITypes.js";
 import morgan from "morgan";
-import morganBody from "morgan-body";
 
 @injectable()
 export default class AppConfig {

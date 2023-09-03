@@ -1,9 +1,9 @@
 import express, { Router } from "express";
 import { inject, injectable } from "inversify";
-import PRODUCT_DI_TYPES from "../utils/dependencies/productDITypes.js";
-import ProductController from "../controllers/productController.js";
-import Transformations from "../../../utils/functions/transformations.js";
-import ProductModel from "../models/productModel.js";
+import PRODUCT_DI_TYPES from "../utils/dependencies/ProductDITypes.js";
+import ProductController from "../controllers/ProductController.js";
+import Transformations from "../../../utils/functions/Transformations.js";
+import ProductModel from "../models/ProductModel.js";
 
 @injectable()
 export default class ProductRoute {

@@ -7,8 +7,8 @@ import {
 } from "class-transformer";
 import { ValidationError, validate } from "class-validator";
 import { NextFunction, Request, Response } from "express";
-import APIResponse from "./apiResponse.js";
-import BaseModel from "../models/baseModel.js";
+import APIResponse from "./ApiResponse.js";
+import BaseModel from "../models/BaseModel.js";
 
 export default class Transformations {
   private constructor() {}
