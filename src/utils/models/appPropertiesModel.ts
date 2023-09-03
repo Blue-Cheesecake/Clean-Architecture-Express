@@ -13,4 +13,8 @@ export default class AppPropertiesModel {
   public get mongodbDatabase(): string {
     return process.env.mongodbUsedDatabase ?? "";
   }
+
+  public get isMocking(): boolean {
+    return process.env.mock === "true";
+  }
 }

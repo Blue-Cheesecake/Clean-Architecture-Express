@@ -8,6 +8,8 @@ import ProductRoute from "../features/product/routes/productRoute.js";
 import PRODUCT_DI_TYPES from "../features/product/utils/dependencies/productDITypes.js";
 import morgan from "morgan";
 import morganBody from "morgan-body";
+import AUTH_DI_TYPES from "../features/auth/utils/dependencies/authDITypes.js";
+import AuthRoute from "../features/auth/routes/authRoute.js";
 
 @injectable()
 export default class AppConfig {
@@ -20,7 +22,9 @@ export default class AppConfig {
     @inject(COMMON_DI_TYPES.ILogger)
     private readonly _logger: ILogger,
     @inject(PRODUCT_DI_TYPES.ProductRoute)
-    private readonly _productRoute: ProductRoute
+    private readonly _productRoute: ProductRoute,
+    @inject(AUTH_DI_TYPES.AuthRoute)
+    private readonly _authRoute: AuthRoute
   ) {
     this.express = express();
     this.setUp();
@@ -50,5 +54,6 @@ export default class AppConfig {
 
   private configureRoutes(): void {
     this.express.use(AppConfig._prefix, this._productRoute.router);
+    this.express.use(AppConfig._prefix, this._authRoute.router);
   }
 }
