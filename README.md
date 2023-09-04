@@ -109,6 +109,13 @@ yarn run release-dev
 
 More run script can be found at `package.json`
 
+## Resources
+
+1. [Mongoose](https://mongoosejs.com/docs/typescript.html)
+2. [DI Concept](https://pvictorsys.medium.com/dependency-injection-in-typescript-with-inversify-e956fa28b668)
+3. [DI with Inversify](https://github.com/inversify/InversifyJS)
+4. [Class Transformer & Validator](https://github.com/typestack/class-transformer#using-versioning-to-control-exposed-and-excluded-properties)
+
 ## Contribution
 
 Feel free to fork this repository, make changes, and submit pull requests if you want to improve this structure. 
