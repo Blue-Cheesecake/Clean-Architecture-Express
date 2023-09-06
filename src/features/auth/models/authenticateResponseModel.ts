@@ -7,7 +7,7 @@ export default class AuthenticateResponseModel extends BaseModel {
     this.token = token;
   }
 
-  @Expose({ name: "token " })
+  @Expose({ name: "token" })
   private _token: string;
 
   public get token(): string {
