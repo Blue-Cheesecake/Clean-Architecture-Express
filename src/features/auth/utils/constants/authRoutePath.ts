@@ -1,5 +1,5 @@
 export default class AuthRoutePath {
   private constructor() {}
 
-  public static prefix = "/api";
+  public static prefix = "/auth";
 }
