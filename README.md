@@ -35,10 +35,15 @@ src/
 ### On Each Feature
 
 **Controllers**: Handle HTTP requests, delegate business logic to the services, and send responses.
+
 **Entities**: Define the shape of data objects.
+
 **Models**: Represent data structures, including request and response objects.
+
 **Repositories**: Interact with the database, fetch data, and return it to the services.
+
 **Routes**: Define the API endpoints.
+
 **Services**: Contain the business logic and call the data access layer (repositories).
 
 ### On Main Utils
