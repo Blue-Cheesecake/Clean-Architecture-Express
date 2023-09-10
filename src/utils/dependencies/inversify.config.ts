@@ -12,10 +12,13 @@ import IUserRepository from "../repositories/iuserRepository.js";
 import MockUserRepository from "../repositories/mockUserRepository.js";
 import UserRepository from "../repositories/userRepository.js";
 import AuthDIContainer from "../../features/auth/utils/dependencies/authDIContainer.js";
+import IFeatureDIContainer from "./ifeatureDIContainer.js";
+import assert from "assert";
 
 class DIContainer {
   private _container: Container;
   private _appProperties: AppPropertiesModel;
+  private _registerFeatureContainers: IFeatureDIContainer[];
 
   public get container(): Container {
     return this._container;
@@ -23,6 +26,7 @@ class DIContainer {
 
   constructor() {
     this._container = new Container();
+    this._registerFeatureContainers = [];
     this.setUp();
   }
 
@@ -32,6 +36,7 @@ class DIContainer {
     this.bindDataSource();
     this.bindLogger();
     this.bindRepository();
+    this.registerFeatures();
     this.bindFeatures();
   }
 
@@ -64,13 +69,17 @@ class DIContainer {
     }
   }
 
-  private bindFeatures() {
-    // FIXME: we could utlize pub/sub pattern
-    const product = new ProductDIContainer(this._container);
-    product.bind();
+  private registerFeatures() {
+    this._registerFeatureContainers.push(new ProductDIContainer(this._container));
+    this._registerFeatureContainers.push(new AuthDIContainer(this._container));
+  }
 
-    const auth = new AuthDIContainer(this._container);
-    auth.bind();
+  private bindFeatures() {
+    assert(this._registerFeatureContainers.length !== 0, "There are no registered feature containers");
+
+    this._registerFeatureContainers.forEach((featureContainer) => {
+      featureContainer.bind();
+    });
   }
 }
 

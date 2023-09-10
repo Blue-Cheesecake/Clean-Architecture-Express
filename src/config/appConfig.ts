@@ -39,10 +39,11 @@ export default class AppConfig {
   private async configureDatabase(): Promise<void> {
     try {
       await this._dataSource.openConnection();
-      this._logger.printDebug("Successfully connect to mongodb");
+      this._logger.printDebug("Successfully connect to database");
     } catch (error) {
-      this._logger.printDebug("Error on connecting to mongodb");
+      this._logger.printDebug("Error on connecting to database");
       await this._dataSource.closeConnection();
+      return process.exit(1);
     }
   }
 
