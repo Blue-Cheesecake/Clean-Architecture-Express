@@ -1,15 +1,15 @@
 import { inject, injectable } from "inversify";
 import PRODUCT_DI_TYPES from "../utils/dependencies/productDITypes.js";
-import ProductRepository from "../repositories/productRepository.js";
 import ProductModel from "../models/productModel.js";
 import Transformations from "../../../utils/functions/transformations.js";
 import IProductEntity from "../entities/iproductEntity.js";
+import IProductRepository from "../repositories/iproductRepository.js";
 
 @injectable()
 export default class ProductService {
   constructor(
-    @inject(PRODUCT_DI_TYPES.ProductRepository)
-    private readonly _productRepository: ProductRepository
+    @inject(PRODUCT_DI_TYPES.IProductRepository)
+    private readonly _productRepository: IProductRepository
   ) {}
 
   public async addProduct(product: ProductModel): Promise<void> {

@@ -5,13 +5,14 @@ import PRODUCT_DI_TYPES from "./productDITypes.js";
 import ProductRoute from "../../routes/productRoute.js";
 import ProductService from "../../services/productService.js";
 import ProductRepository from "../../repositories/productRepository.js";
+import IProductRepository from "../../repositories/iproductRepository.js";
 
 export default class ProductDIContainer implements IFeatureDIContainer {
   constructor(private _container: Container) {}
 
   bind(): void {
     this._container
-      .bind<ProductRepository>(PRODUCT_DI_TYPES.ProductRepository)
+      .bind<IProductRepository>(PRODUCT_DI_TYPES.IProductRepository)
       .to(ProductRepository)
       .inSingletonScope();
 
