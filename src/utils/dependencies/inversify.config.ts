@@ -14,6 +14,7 @@ import UserRepository from "../repositories/userRepository.js";
 import AuthDIContainer from "../../features/auth/utils/dependencies/authDIContainer.js";
 import IFeatureDIContainer from "./ifeatureDIContainer.js";
 import assert from "assert";
+import MySQLDataSource from "../datasources/mysqlDatasource.js";
 
 class DIContainer {
   private _container: Container;
@@ -49,7 +50,8 @@ class DIContainer {
   }
 
   private bindDataSource() {
-    this._container.bind<IDataSource>(COMMON_DI_TYPES.IDataSource).to(MongooseDataSource).inSingletonScope();
+    // this._container.bind<IDataSource>(COMMON_DI_TYPES.IDataSource).to(MongooseDataSource).inSingletonScope();
+    this._container.bind<IDataSource>(COMMON_DI_TYPES.IDataSource).to(MySQLDataSource).inSingletonScope();
   }
 
   private bindAppProperties() {

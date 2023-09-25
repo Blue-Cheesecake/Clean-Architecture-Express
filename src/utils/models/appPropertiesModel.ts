@@ -17,4 +17,16 @@ export default class AppPropertiesModel {
   public get isMocking(): boolean {
     return process.env.mock === "true";
   }
+
+  public get mysqlHostName(): string {
+    return process.env.mysqlHostName ?? "";
+  }
+
+  public get mysqlUsername(): string {
+    return process.env.mysqlUsername ?? "";
+  }
+
+  public get mysqlPassword(): string {
+    return process.env.mysqlPassword ?? "";
+  }
 }
