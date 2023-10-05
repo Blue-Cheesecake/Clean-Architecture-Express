@@ -22,9 +22,11 @@
     "debug-prd": "concurrently \"npx tsc -w\"  \"NODE_ENV=prd nodemon dist/index.js\""
   },
   "dependencies": {
+    "@types/cors": "^2.8.14",
     "body-parser": "^1.20.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "inversify": "^6.0.1",

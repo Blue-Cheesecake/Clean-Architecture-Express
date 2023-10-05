@@ -10,6 +10,7 @@ import morgan from "morgan";
 import morganBody from "morgan-body";
 import AUTH_DI_TYPES from "../features/auth/utils/dependencies/authDITypes.js";
 import AuthRoute from "../features/auth/routes/authRoute.js";
+import cors from "cors";
 
 @injectable()
 export default class AppConfig {
@@ -48,6 +49,7 @@ export default class AppConfig {
   }
 
   private configureMiddlewares(): void {
+    this.express.use(cors());
     this.express.use(bodyParser.json());
     this.express.use(morgan(`combined`));
     // morganBody(this.express);
