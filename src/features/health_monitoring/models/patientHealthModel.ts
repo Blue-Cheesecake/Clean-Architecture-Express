@@ -1,7 +1,7 @@
 import { Expose } from "class-transformer";
 import BaseModel from "../../../utils/models/baseModel.js";
 
-export default class PatientHealthResponseModel extends BaseModel {
+export default class PatientHealthModel extends BaseModel {
   constructor(healthPoint: number) {
     super();
     this.healthPoint = healthPoint;
