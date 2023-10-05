@@ -11,6 +11,8 @@ import morganBody from "morgan-body";
 import AUTH_DI_TYPES from "../features/auth/utils/dependencies/authDITypes.js";
 import AuthRoute from "../features/auth/routes/authRoute.js";
 import cors from "cors";
+import HEALTH_MONITORING_DI_TYPES from "../features/health_monitoring/utils/dependencies/healthMonitoringDITypes.js";
+import HealthMonitoringRoute from "../features/health_monitoring/routes/healthMonitoringRoute.js";
 
 @injectable()
 export default class AppConfig {
@@ -25,7 +27,9 @@ export default class AppConfig {
     @inject(PRODUCT_DI_TYPES.ProductRoute)
     private readonly _productRoute: ProductRoute,
     @inject(AUTH_DI_TYPES.AuthRoute)
-    private readonly _authRoute: AuthRoute
+    private readonly _authRoute: AuthRoute,
+    @inject(HEALTH_MONITORING_DI_TYPES.HealthMonitoringRoute)
+    private readonly _healthMonitoringRoute: HealthMonitoringRoute
   ) {
     this.express = express();
     this.setUp();
@@ -58,5 +62,6 @@ export default class AppConfig {
   private configureRoutes(): void {
     this.express.use(AppConfig._prefix, this._productRoute.router);
     this.express.use(AppConfig._prefix, this._authRoute.router);
+    this.express.use(AppConfig._prefix, this._healthMonitoringRoute.router);
   }
 }

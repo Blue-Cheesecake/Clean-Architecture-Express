@@ -11,6 +11,7 @@ export default class HealthMonitoringRoute extends BaseRoute {
     private readonly _healthMonitoringController: HealthMonitoringController
   ) {
     super();
+    this.configureRoutes();
   }
 
   protected configureRoutes(): void {

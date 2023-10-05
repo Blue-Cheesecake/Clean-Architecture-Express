@@ -10,13 +10,15 @@ export default class HealthMonitoringController {
   constructor(
     @inject(HEALTH_MONITORING_DI_TYPES.HealthMonitoringService)
     private readonly _healthMonitoringService: HealthMonitoringService
-  ) {}
+  ) {
+    console.log("halo");
+  }
 
-  public listenPatientHealth(req: Request, res: Response): void {
+  listenPatientHealth = async (req: Request, res: Response): Promise<void> => {
     this._healthMonitoringService.listenPatientHealth((newHealthRecord: PatientHealthModel) => {
       APIResponse.serverSentEvent(req, res, () => {
         res.write(`data: ${JSON.stringify(newHealthRecord)}`);
       });
     });
-  }
+  };
 }

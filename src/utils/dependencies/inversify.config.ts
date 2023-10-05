@@ -15,6 +15,7 @@ import AuthDIContainer from "../../features/auth/utils/dependencies/authDIContai
 import IFeatureDIContainer from "./ifeatureDIContainer.js";
 import assert from "assert";
 import MySQLDataSource from "../datasources/mysqlDatasource.js";
+import HealthMonitoringDIContainer from "../../features/health_monitoring/utils/dependencies/healthMonitoringDIContainer.js";
 
 class DIContainer {
   private _container: Container;
@@ -74,6 +75,7 @@ class DIContainer {
   private registerFeatures() {
     this._registerFeatureContainers.push(new ProductDIContainer(this._container));
     this._registerFeatureContainers.push(new AuthDIContainer(this._container));
+    this._registerFeatureContainers.push(new HealthMonitoringDIContainer(this._container));
   }
 
   private bindFeatures() {
