@@ -24,7 +24,7 @@ export default class APIResponse {
   /// Server-Sent Event
   /// __________________
 
-  public static serverSentEvent(
+  public static async serverSentEvent(
     req: Request,
     res: Response,
     writtingCallback: () => void,
@@ -37,11 +37,23 @@ export default class APIResponse {
     });
     res.flushHeaders();
 
-    writtingCallback();
+    res.write("retry: 10000\n\n");
 
-    req.on("close", () => {
-      if (onCloseCallback !== undefined) onCloseCallback();
-      res.end();
-    });
+    let count = 0;
+
+    while (true) {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      console.log("Emit", ++count);
+      // Emit an SSE that contains the current 'count' as a string
+      res.write(`data: ${count}\n\n`);
+    }
+
+    // writtingCallback();
+
+    // req.on("close", () => {
+    //   if (onCloseCallback !== undefined) onCloseCallback();
+    //   res.end();
+    // });
   }
 }

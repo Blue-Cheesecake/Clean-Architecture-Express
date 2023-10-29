@@ -3,14 +3,15 @@ import PatientHealthModel from "../models/patientHealthModel.js";
 
 @injectable()
 export default class HealthMonitoringService {
-  constructor() {
-    console.log("service");
-  }
+  constructor() {}
 
   public async listenPatientHealth(onchangeCallback: (newHealthRecord: PatientHealthModel) => void): Promise<void> {
-    setInterval(() => {
+    while (true) {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      console.log("resolved");
+
       const mockData = new PatientHealthModel(Math.floor(Math.random() * 101));
       onchangeCallback(mockData);
-    }, 5000);
+    }
   }
 }
